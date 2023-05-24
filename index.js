@@ -5,6 +5,8 @@ const fs = require('fs');
 const data = [];
 
 async function scrapeWebsite(url, currentPage = 1) {
+    console.info(`Scraping page ${currentPage}...`);
+    console.info(`URL: ${url}`);
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle0' });
