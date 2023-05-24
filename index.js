@@ -23,7 +23,7 @@ async function scrapeWebsite(url, currentPage = 1) {
         });
     });
 
-    const nextPageLink = $('li.paging-item a').eq(currentPage).attr('href');
+    const nextPageLink = $('li.paging-item a').eq(currentPage + 1).attr('href');
     if (nextPageLink && data.length < 100) {
         const nextPageUrl = new URL(nextPageLink, url).href;
         const nextPage = currentPage + 1;
